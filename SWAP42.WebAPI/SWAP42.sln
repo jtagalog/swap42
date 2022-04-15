@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32407.343
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SWAP42.WebAPI", "SWAP42.WebAPI\SWAP42.WebAPI.csproj", "{8F80CA69-744D-4D67-BE0E-9210E499EA82}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SWAP42.Repositories", "..\SWAP42.Repositories\SWAP42.Repositories.csproj", "{3B423235-910F-4097-B0F7-076A30C87C39}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8F80CA69-744D-4D67-BE0E-9210E499EA82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F80CA69-744D-4D67-BE0E-9210E499EA82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F80CA69-744D-4D67-BE0E-9210E499EA82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F80CA69-744D-4D67-BE0E-9210E499EA82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B423235-910F-4097-B0F7-076A30C87C39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B423235-910F-4097-B0F7-076A30C87C39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B423235-910F-4097-B0F7-076A30C87C39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B423235-910F-4097-B0F7-076A30C87C39}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {297B4F2A-6FFD-4CBF-9E71-31229DB27C23}
+	EndGlobalSection
+EndGlobal
