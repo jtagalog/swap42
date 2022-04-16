@@ -8,10 +8,9 @@
     {
         private readonly HttpClient _httpClient;
 
-        public HttpRequestExecutor()
+        public HttpRequestExecutor(HttpClient httpClient)
         {
-            this._httpClient = new HttpClient();
-            this._httpClient.Timeout = Timeout.InfiniteTimeSpan;
+            this._httpClient = httpClient;
         }
 
         public async Task<HttpResponseMessage> ExecuteAsync(HttpRequestMessage request, 

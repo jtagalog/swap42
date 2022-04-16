@@ -20,6 +20,8 @@ builder.Services.AddScoped<IBikeService, BikeService>();
 builder.Services.AddScoped<IBikeRepository, BikeRepository>();
 builder.Services.AddScoped<IHttpRequestExecutor, HttpRequestExecutor>();
 
+builder.Services.AddHttpClient<IHttpRequestExecutor, HttpRequestExecutor>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
