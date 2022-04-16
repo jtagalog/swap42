@@ -4,9 +4,7 @@
 
     public class BikeSearchResult
     {
-        [JsonProperty("proximity")]
-        public int Proximity { get; set; }
-
-        public string Location { get; set; }
+        [JsonProperty("bikes")]
+        public IEnumerable<Bike> Bikes { get; set; }
     }
 }

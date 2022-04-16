@@ -17,7 +17,7 @@ namespace SWAP42.WebAPI.Controllers
         [HttpGet("{location}")]
         public async Task<IActionResult> Get(string location)
         {
-            var result = await this._service.GetTheftCountByLocation(location);
+            var result = await this._service.GetBikeTheftCountByLocation(location);
 
             return this.Ok(result);
         }

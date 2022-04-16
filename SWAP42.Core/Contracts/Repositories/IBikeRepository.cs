@@ -4,6 +4,8 @@
 
     public interface IBikeRepository
     {
-        Task<BikeSearchResult> GetBikesCount(string location);
+        Task<BikeSearchResult> GetBikes(string location, string distance, string stolenness);
+
+        Task<BikeSearchCountResult> GetBikeCount(string location, string distance, string stolenness);
     }
 }

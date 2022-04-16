@@ -4,6 +4,8 @@
 
     public interface IBikeService
     {
-        Task<BikeSearchResult> GetTheftCountByLocation(string location);
+        Task<IEnumerable<Bike>> GetBikeTheftsByLocation(string location);
+
+        Task<BikeSearchCountResult> GetBikeTheftCountByLocation(string location);
     }
 }

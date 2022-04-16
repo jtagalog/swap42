@@ -1,4 +1,4 @@
-﻿namespace SWAP42.Repositories
+﻿namespace SWAP42.Services
 {
     using SWAP42.Core.Contracts.Helpers;
 

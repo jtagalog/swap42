@@ -10,21 +10,29 @@
     {
         private IHttpRequestExecutor _httpExecutor;
         private IBikeSearchUrlHelper _bikeSearchUriHelper;
-        private IConfigReader _configReader;
-
-        public BikeRepository(IHttpRequestExecutor httpExecutor, IBikeSearchUrlHelper bikeSearchUrlHelper, IConfigReader configReader)
+       
+        public BikeRepository(IHttpRequestExecutor httpExecutor, IBikeSearchUrlHelper bikeSearchUrlHelper)
         {
             this._httpExecutor = httpExecutor;
             this._bikeSearchUriHelper = bikeSearchUrlHelper;
-            this._configReader = configReader;
         }
 
-        public async Task<BikeSearchResult> GetBikesCount(string location)
+        public async Task<BikeSearchResult> GetBikes(string location, string distance, string stolenness)
         {
-            var endpointUrl = this._bikeSearchUriHelper.GetBikeSearchUrl(location, this._configReader.GetDistance(), this._configReader.GetStolenness());
+            var endpointUrl = this._bikeSearchUriHelper.GetBikeSearchUrl(location, distance, stolenness);
             var result = await this._httpExecutor.ExecuteGetAsync(endpointUrl);
 
-            var bikeSearchCountResult = JsonConvert.DeserializeObject<BikeSearchResult>(result);
+            var bikeSearchResult = JsonConvert.DeserializeObject<BikeSearchResult>(result);
+
+            return bikeSearchResult;
+        }
+
+        public async Task<BikeSearchCountResult> GetBikeCount(string location, string distance, string stolenness)
+        {
+            var endpointUrl = this._bikeSearchUriHelper.GetBikeSearchCountUrl(location, distance, stolenness);
+            var result = await this._httpExecutor.ExecuteGetAsync(endpointUrl);
+
+            var bikeSearchCountResult = JsonConvert.DeserializeObject<BikeSearchCountResult>(result);
 
             return bikeSearchCountResult;
         }
