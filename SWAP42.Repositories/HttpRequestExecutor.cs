@@ -13,12 +13,22 @@
             this._httpClient = httpClient;
         }
 
-        public async Task<HttpResponseMessage> ExecuteAsync(HttpRequestMessage request, 
+        public async Task<string> ExecuteGetAsync(string endpointUrl, 
             HttpCompletionOption completionOption = HttpCompletionOption.ResponseContentRead)
         {
-            request.Headers.Add("Accept", "application/json;odata=nometadata");
+            using (var request = new HttpRequestMessage(HttpMethod.Get, endpointUrl))
+            {
+                request.Headers.Add("Accept", "application/json;odata=nometadata");
 
-            return await this._httpClient.SendAsync(request, completionOption);
+                var response = await this._httpClient.SendAsync(request, completionOption);
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    return null;
+                }
+
+                return await response.Content.ReadAsStringAsync();
+            }
         }
     }
 }

@@ -2,7 +2,7 @@
 {
     public interface IHttpRequestExecutor
     {
-        Task<HttpResponseMessage> ExecuteAsync(HttpRequestMessage request, 
+        Task<string> ExecuteGetAsync(string endpointUrl, 
             HttpCompletionOption completionOption = HttpCompletionOption.ResponseContentRead);
     }
 }
