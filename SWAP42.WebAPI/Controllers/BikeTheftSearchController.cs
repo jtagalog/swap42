@@ -21,5 +21,21 @@ namespace SWAP42.WebAPI.Controllers
 
             return this.Ok(result);
         }
+
+        [HttpGet("InOperatedCities")]
+        public async Task<IActionResult> InOperatedCities()
+        {
+            var result = await this._service.GetBikeTheftsInOperatedCities();
+
+            return this.Ok(result);
+        }
+
+        [HttpGet("InToExpandCities")]
+        public async Task<IActionResult> InToExpandCities()
+        {
+            var result = await this._service.GetBikeTheftsInToExpandCities();
+
+            return this.Ok(result);
+        }
     }
 }

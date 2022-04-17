@@ -1,5 +1,6 @@
 ﻿namespace SWAP42.Services
 {
+    using Newtonsoft.Json;
     using SWAP42.Core.Contracts.Helpers;
     using SWAP42.Core.Contracts.Repositories;
     using SWAP42.Core.Contracts.Services;
@@ -33,6 +34,27 @@
             taskResult.Location = location;
 
             return taskResult;
+        }
+
+        public async Task<IEnumerable<BikeSearchCountResult>> GetBikeTheftsInOperatedCities()
+        {
+            var cities = JsonConvert.DeserializeObject<string[]>(this._configReader.GetOperatedCities());
+
+            return await this.ExecuteRequests(cities);
+        }
+
+        public async Task<IEnumerable<BikeSearchCountResult>> GetBikeTheftsInToExpandCities()
+        {
+            var cities = JsonConvert.DeserializeObject<string[]>(this._configReader.GetToExpandCities());
+
+            return await this.ExecuteRequests(cities);
+        }
+
+        private async Task<IEnumerable<BikeSearchCountResult>> ExecuteRequests(string[] cities)
+        {
+            var tasks = cities.Select(city => this.GetBikeTheftCountByLocation(city));
+
+            return await Task.WhenAll(tasks);
         }
     }
 }

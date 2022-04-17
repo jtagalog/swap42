@@ -7,5 +7,9 @@
         Task<IEnumerable<Bike>> GetBikeTheftsByLocation(string location);
 
         Task<BikeSearchCountResult> GetBikeTheftCountByLocation(string location);
+
+        Task<IEnumerable<BikeSearchCountResult>> GetBikeTheftsInOperatedCities();
+
+        Task<IEnumerable<BikeSearchCountResult>> GetBikeTheftsInToExpandCities();
     }
 }

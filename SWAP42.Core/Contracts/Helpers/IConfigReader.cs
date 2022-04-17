@@ -5,5 +5,9 @@
         public string GetDistance();
 
         public string GetStolenness();
+
+        public string GetOperatedCities();
+
+        public string GetToExpandCities();
     }
 }
