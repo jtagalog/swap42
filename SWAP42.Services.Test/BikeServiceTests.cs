@@ -9,7 +9,7 @@ namespace SWAP42.Services.Test
     using System.Linq;
     using System.Threading.Tasks;
 
-    public class Tests
+    public class BikeServiceTests
     {
         private Mock<IBikeRepository> _mockRepository;
         private Mock<IConfigReader> _mockConfigReader;
