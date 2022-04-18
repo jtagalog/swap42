@@ -1,11 +1,9 @@
 ﻿namespace SWAP42.Core.Contracts.Repositories
 {
-    using SWAP42.Core.Models;
-
     public interface IBikeRepository
     {
-        Task<BikeSearchResult> GetBikes(string location, string distance, string stolenness);
+        Task<TResult> GetBikes<TResult>(string location, string distance, string stolenness) where TResult : class;
 
-        Task<BikeSearchCountResult> GetBikeCount(string location, string distance, string stolenness);
+        Task<TResult> GetBikeCount<TResult>(string location, string distance, string stolenness) where TResult : class;
     }
 }

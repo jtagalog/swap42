@@ -40,7 +40,7 @@ namespace SWAP42.Services.Test
                 }
             };
 
-            this._mockRepository.Setup(p => p.GetBikes(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>())).Returns(Task.FromResult(bikeSearchResult));
+            this._mockRepository.Setup(p => p.GetBikes<BikeSearchResult>(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>())).Returns(Task.FromResult(bikeSearchResult));
 
             var result = this._bikeSerivice.GetBikeTheftsByLocation("Amsterdam, The Netherlands").Result;
 
@@ -58,7 +58,7 @@ namespace SWAP42.Services.Test
                 Proximity = 131
             };
 
-            this._mockRepository.Setup(p => p.GetBikeCount(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>())).Returns(Task.FromResult(bikeSearchCountResult));
+            this._mockRepository.Setup(p => p.GetBikeCount<BikeSearchCountResult>(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>())).Returns(Task.FromResult(bikeSearchCountResult));
 
             var result = this._bikeSerivice.GetBikeTheftCountByLocation("Amsterdam, The Netherlands").Result;
 

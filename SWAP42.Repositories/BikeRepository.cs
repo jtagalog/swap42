@@ -3,7 +3,6 @@
     using Newtonsoft.Json;
     using SWAP42.Core.Contracts.Helpers;
     using SWAP42.Core.Contracts.Repositories;
-    using SWAP42.Core.Models;
     using System.Threading.Tasks;
 
     public class BikeRepository : IBikeRepository
@@ -17,22 +16,22 @@
             this._bikeSearchUriHelper = bikeSearchUrlHelper;
         }
 
-        public async Task<BikeSearchResult> GetBikes(string location, string distance, string stolenness)
+        public async Task<TResult> GetBikes<TResult>(string location, string distance, string stolenness) where TResult : class
         {
             var endpointUrl = this._bikeSearchUriHelper.GetBikeSearchUrl(location, distance, stolenness);
             var result = await this._httpExecutor.ExecuteGetAsync(endpointUrl);
 
-            var bikeSearchResult = JsonConvert.DeserializeObject<BikeSearchResult>(result);
+            var bikeSearchResult = JsonConvert.DeserializeObject<TResult>(result);
 
             return bikeSearchResult;
         }
 
-        public async Task<BikeSearchCountResult> GetBikeCount(string location, string distance, string stolenness)
+        public async Task<TResult> GetBikeCount<TResult>(string location, string distance, string stolenness) where TResult : class
         {
             var endpointUrl = this._bikeSearchUriHelper.GetBikeSearchCountUrl(location, distance, stolenness);
             var result = await this._httpExecutor.ExecuteGetAsync(endpointUrl);
 
-            var bikeSearchCountResult = JsonConvert.DeserializeObject<BikeSearchCountResult>(result);
+            var bikeSearchCountResult = JsonConvert.DeserializeObject<TResult>(result);
 
             return bikeSearchCountResult;
         }

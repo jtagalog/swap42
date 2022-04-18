@@ -21,7 +21,7 @@
 
         public async Task<IEnumerable<Bike>> GetBikeTheftsByLocation(string location)
         {
-            var taskResult = await this._repository.GetBikes(location, this._configReader.GetDistance(), this._configReader.GetStolenness());
+            var taskResult = await this._repository.GetBikes<BikeSearchResult>(location, this._configReader.GetDistance(), this._configReader.GetStolenness());
 
             var filteredResult = taskResult.Bikes.Where(bike => bike.IsStolen == true);
 
@@ -30,7 +30,7 @@
 
         public async Task<BikeSearchCountResult> GetBikeTheftCountByLocation(string location)
         {
-            var taskResult = await this._repository.GetBikeCount(location, this._configReader.GetDistance(), this._configReader.GetStolenness());
+            var taskResult = await this._repository.GetBikeCount<BikeSearchCountResult>(location, this._configReader.GetDistance(), this._configReader.GetStolenness());
             taskResult.Location = location;
 
             return taskResult;
