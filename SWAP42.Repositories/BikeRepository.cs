@@ -21,9 +21,7 @@
             var endpointUrl = this._bikeSearchUriHelper.GetBikeSearchUrl(location, distance, stolenness);
             var result = await this._httpExecutor.ExecuteGetAsync(endpointUrl);
 
-            var bikeSearchResult = JsonConvert.DeserializeObject<TResult>(result);
-
-            return bikeSearchResult;
+            return JsonConvert.DeserializeObject<TResult>(result);
         }
 
         public async Task<TResult> GetBikeCount<TResult>(string location, string distance, string stolenness) where TResult : class
@@ -31,9 +29,7 @@
             var endpointUrl = this._bikeSearchUriHelper.GetBikeSearchCountUrl(location, distance, stolenness);
             var result = await this._httpExecutor.ExecuteGetAsync(endpointUrl);
 
-            var bikeSearchCountResult = JsonConvert.DeserializeObject<TResult>(result);
-
-            return bikeSearchCountResult;
+            return JsonConvert.DeserializeObject<TResult>(result);
         }
     }
 }
